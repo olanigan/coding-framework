@@ -1,179 +1,484 @@
-# Claude Code Session Management Commands
+# Mega Agentic Coding Commands & Session Management System
 
-Custom slash commands for Claude Code that provide comprehensive development session tracking and documentation. Based on [Claude Code's custom slash command system](https://docs.anthropic.com/en/docs/claude-code/slash-commands).
+A comprehensive development workflow system that combines session management, sprint planning, debugging protocols, and delivery documentation. This system integrates best practices from astroHalal, workerHalal projects, and CLAUDE.md debugging patterns into Claude Code's custom slash command system.
 
 ## 🎯 Overview
 
-This is a set of custom slash commands for Claude Code that helps developers maintain continuity across multiple coding sessions with Claude by:
+This enhanced session management system provides a complete framework for structured, well-documented development with:
 
-- **Documenting Progress**: Capture what was done, how it was done, and why decisions were made
-- **Tracking Changes**: Monitor git changes, todo items, and implementation details  
-- **Knowledge Transfer**: Enable future sessions to understand past work without re-analyzing the entire codebase
-- **Issue Resolution**: Document problems encountered and their solutions for future reference
+### Core Capabilities
+- **📝 Session Management**: Track development progress with comprehensive documentation
+- **🏃 Sprint Planning**: Organize work using proven sprint categorization patterns
+- **🐛 Systematic Debugging**: Follow emergency response protocols and TDD practices
+- **📋 Rules Enforcement**: Apply project-specific guidelines and standards
+- **📦 Delivery Documentation**: Generate comprehensive delivery and retrospective reports
+- **🎓 Knowledge Transfer**: Preserve decisions, lessons learned, and best practices
 
-These commands extend Claude Code's built-in functionality with project-specific session management capabilities.
+### Key Integrations
+- **CLAUDE.md Practices**: TDD protocols, CORS validation, debugging checklists
+- **astroHalal/workerHalal Patterns**: Sprint numbering, descriptive naming, checkpoint documentation
+- **Best Practices Automation**: Automated compliance checking and quality gates
 
 ## 🚀 Quick Start
 
+### Basic Session Commands
 ```bash
-# Start a new session (with optional name)
-/project:session-start authentication-refactor
-# Or without a name
-/project:session-start
+# Start a new session with sprint type and descriptive name
+/project:session-start feature-user-authentication
+/project:session-start bug-login-cors-issue
+/project:session-start infrastructure-docker-setup
 
-# Update progress during development (with optional notes)
-/project:session-update Implemented OAuth with Google
-# Or without notes (auto-summarizes recent activity)
-/project:session-update
+# Update progress with checkpoint types
+/project:session-update milestone "Completed authentication flow"
+/project:session-update debug "Found root cause of CORS issue"
+/project:session-update daily "End of day progress summary"
 
-# End session with comprehensive summary
+# End session with comprehensive documentation
 /project:session-end
-
-# View current session status
-/project:session-current
-
-# List all past sessions
-/project:session-list
 ```
 
-## 📁 File Structure
+### Advanced Workflow Commands
+```bash
+# Sprint management
+/project:session-sprint create feature-sprint-authentication
+/project:session-sprint status
+/project:session-sprint complete
+
+# Debugging protocol
+/project:session-debug start "Users can't login on production"
+/project:session-debug symptoms
+/project:session-debug browser
+/project:session-debug api
+/project:session-debug complete "Fixed CORS configuration"
+
+# Project rules and compliance
+/project:session-rules init
+/project:session-rules check
+/project:session-rules enforce naming
+
+# Delivery documentation
+/project:session-delivery create feature
+/project:session-delivery status
+/project:session-delivery publish
+```
+
+## 📁 Enhanced File Structure
 
 ```
 commands/                       # Custom command directory
-├── session-start.md           # Command for starting a new session
-├── session-update.md          # Command for updating current session
-├── session-end.md             # Command for ending and summarizing
-├── session-current.md         # Command for viewing current status
-├── session-list.md            # Command for listing all sessions
-└── session-help.md            # Command for showing help
+├── session-start.md           # Enhanced with sprint planning & TDD setup
+├── session-update.md          # Checkpoint documentation & debugging
+├── session-end.md             # Delivery docs & retrospectives
+├── session-current.md         # Current session status
+├── session-list.md            # List all sessions
+├── session-help.md            # Help documentation
+├── session-sprint.md          # Sprint planning & management
+├── session-debug.md           # Systematic debugging protocol
+├── session-rules.md           # Project rules enforcement
+└── session-delivery.md        # Delivery documentation generation
 
 sessions/                      # Session storage directory
-├── .current-session          # Tracks the active session filename
-├── 2025-01-16-1347.md       # Example session file
-└── [YYYY-MM-DD-HHMM-name].md  # Session naming format
+├── .current-session          # Active session tracker
+├── [timestamp]-[type]-[name].md  # Enhanced naming format
+├── sprints/                  # Sprint documentation
+├── debug/                    # Debug session logs
+└── delivery/                 # Delivery documents
+
+templates/                     # Session templates by type
+├── feature-session.md        # Feature development template
+├── bug-session.md            # Bug fix template
+├── infrastructure-session.md # Infrastructure work template
+├── research-session.md       # Research/spike template
+├── maintenance-session.md    # Maintenance work template
+└── emergency-session.md      # Emergency response template
+
+.rules/                       # Project-specific rules (optional)
+├── project.md               # Project guidelines
+├── sdlc.md                  # Development lifecycle rules
+└── architecture.md          # Architecture standards
 ```
 
 ## 🛠️ Installation
 
 1. Clone this repository or copy the folders to your project:
    ```bash
-   git clone git@github.com:iannuttall/claude-sessions.git
-   # Or copy the commands and sessions folders to your project root
+   git clone https://github.com/iannuttall/claude-sessions.git
+   # Or copy the commands, templates, and sessions folders to your project root
    ```
 
-2. Create the sessions tracking file:
+2. Create the sessions directory structure:
    ```bash
-   mkdir -p sessions
+   mkdir -p sessions/{sprints,debug,delivery}
    touch sessions/.current-session
    ```
 
-3. Add to `.gitignore` if you don't want to track sessions:
+3. Initialize project rules (optional):
+   ```bash
+   /project:session-rules init
+   ```
+
+4. Add to `.gitignore` if you don't want to track sessions:
    ```
    sessions/
+   debug/
+   .rules/
    ```
 
-## 📝 How It Works
+## 📋 Enhanced Command Reference
 
-This system provides custom slash commands inspired by [Claude Code's custom slash commands](https://docs.anthropic.com/en/docs/claude-code/slash-commands#custom-slash-commands) feature. While Claude Code typically looks for commands in `.claude/commands/`, this repository provides a standalone implementation with commands in the `commands/` directory.
+### Core Session Commands
 
-- **Prefix**: All commands use the `/project:` prefix (for project-specific commands)
-- **Arguments**: Commands support arguments using the `$ARGUMENTS` placeholder
-- **Execution**: Claude reads the command file and executes the instructions within
-- **Note**: These commands are designed to work with Claude but can be adapted for other AI coding assistants
+### `/project:session-start [sprint-type]-[name]`
+Starts a new development session with sprint planning and best practices integration.
 
-## 📋 Command Reference
+**Sprint Types:**
+- `feature` - New functionality development
+- `bug` - Bug fixes and patches
+- `refactor` - Code refactoring and optimization
+- `infrastructure` - DevOps, deployment, configuration
+- `research` - Spike, analysis, proof of concept
+- `maintenance` - Updates, dependencies, cleanup
+- `emergency` - Critical fixes requiring immediate attention
 
-### `/project:session-start [name]`
-Starts a new development session with an optional descriptive name.
-
-**Parameters:**
-- `[name]` (optional) - A descriptive name for the session. If omitted, creates a session with just the timestamp.
-
-**What it does:**
-- Creates a new markdown file with timestamp (format: `YYYY-MM-DD-HHMM.md` or `YYYY-MM-DD-HHMM-name.md`)
-- Sets up session structure with goals and progress sections
-- Updates `.current-session` to track active session
-- Prompts for session goals if not clear from context
-
-**Examples:**
-```
-# With a descriptive name
-/project:session-start refactor-auth-system
-
-# Without a name (just timestamp)
-/project:session-start
-```
-
-### `/project:session-update [notes]`
-Adds timestamped updates to the current session.
-
-**Parameters:**
-- `[notes]` (optional) - Custom notes about the update. If omitted, automatically summarizes recent activities.
-
-**What it does:**
-- Appends progress notes with timestamp
-- Captures git status and changes
-- Tracks todo list progress
-- Documents issues and solutions
-- Records implementation details
-- Auto-generates summary if no notes provided
+**Enhanced Features:**
+- Sprint type categorization and planning
+- Pre-development checklist (environment, CORS, tests)
+- TDD setup and test planning
+- Architecture documentation
+- Risk assessment
+- Debugging protocol checkpoints
 
 **Examples:**
-```
-# With custom notes
-/project:session-update Fixed Next.js 15 params Promise issue
+```bash
+# Feature development
+/project:session-start feature-user-authentication
 
-# Without notes (auto-summarizes)
-/project:session-update
+# Bug fix session
+/project:session-start bug-login-cors-issue
+
+# Infrastructure work
+/project:session-start infrastructure-ci-cd-pipeline
+
+# Emergency response
+/project:session-start emergency-production-down
+```
+
+### `/project:session-update [checkpoint-type] [notes]`
+Adds comprehensive checkpoint documentation to the current session.
+
+**Checkpoint Types:**
+- `milestone` - Major feature completion or significant progress
+- `daily` - End of day summary and status
+- `debug` - Debugging session results and findings
+- `blocker` - Issues that prevent progress
+- `integration` - System integration and testing updates
+- `review` - Code review and quality assurance
+- `deployment` - Deployment and production updates
+
+**Enhanced Documentation:**
+- Git status with detailed file changes
+- Todo progress with task categorization
+- Environment and configuration status
+- Code quality metrics (linting, type checking, coverage)
+- Architecture and design decisions
+- Knowledge transfer notes
+- Debugging protocol results
+- Delivery progress tracking
+
+**Examples:**
+```bash
+# Milestone update
+/project:session-update milestone "Authentication flow complete"
+
+# Debug checkpoint
+/project:session-update debug "Root cause: CORS misconfiguration"
+
+# Daily summary
+/project:session-update daily
+
+# Blocker documentation
+/project:session-update blocker "AWS permissions preventing deployment"
 ```
 
 ### `/project:session-end`
-Ends the current session with a comprehensive summary.
+Ends the current session with comprehensive delivery documentation and retrospective.
 
-**What it does:**
-- Generates complete session summary including:
-  - Duration and timing
-  - Git changes summary
-  - Todo items completed/remaining
-  - Key accomplishments
-  - Problems and solutions
-  - Dependencies and configuration changes
-  - Lessons learned
-  - Tips for future developers
-- Clears `.current-session` file
+**Enhanced Summary Includes:**
+- **Delivery Metrics**: Goals achievement, acceptance criteria status
+- **Development Activity**: Detailed git changes, todo completion rates
+- **Architecture Decisions**: Technical choices and rationale
+- **Testing & QA**: Test coverage, quality metrics, security status
+- **Deployment Readiness**: Environment parity, CORS validation
+- **Issue Resolution**: Problems encountered, solutions, prevention
+- **Knowledge Transfer**: Lessons learned, best practices, gotchas
+- **Sprint Impact**: Contribution to sprint goals, velocity metrics
+- **Retrospective Analysis**: What went well, improvements needed
+- **Future Recommendations**: Next steps, technical debt, follow-ups
 
-### `/project:session-current`
-Shows the status of the current active session.
+**Post-Completion Actions:**
+- Generates delivery documentation
+- Updates project documentation
+- Creates follow-up tasks
+- Prepares retrospective data
 
-**What it does:**
-- Displays session name and duration
-- Shows recent updates
-- Lists current goals and tasks
-- Reminds of available commands
+### Sprint Management Commands
 
-### `/project:session-list`
-Lists all session files with summaries.
+### `/project:session-sprint create [sprint-name]`
+Creates a new sprint with integrated backlog and planning.
 
-**What it does:**
-- Shows all session files sorted by date
-- Displays session titles and timestamps
-- Highlights currently active session
-- Shows brief overview of each session
+**Sprint Numbering Convention:**
+- 1.x - Feature sprints
+- 2.x - Infrastructure sprints
+- 3.x - Bug fix sprints
+- 4.x - Research sprints
+- 5.x - Maintenance sprints
+- 9.x - Emergency sprints
+
+### `/project:session-sprint status`
+Displays current sprint progress, velocity, and health metrics.
+
+### `/project:session-sprint tasks`
+Manages sprint task prioritization and dependencies.
+
+### `/project:session-sprint complete`
+Completes sprint with retrospective and planning for next sprint.
+
+### Debugging Protocol Commands
+
+### `/project:session-debug start [issue-description]`
+Initiates systematic debugging following CLAUDE.md emergency response protocol.
+
+**Debugging Phases:**
+1. Symptoms Analysis (5 min)
+2. Browser DevTools (10 min)
+3. API Testing (10 min)
+4. Configuration Review (15 min)
+
+### `/project:session-debug [phase]`
+Executes specific debugging phase:
+- `symptoms` - Document and categorize issues
+- `browser` - Analyze DevTools, network, console
+- `api` - CURL testing with CORS validation
+- `config` - Environment and configuration review
+
+### `/project:session-debug complete [solution]`
+Documents root cause, solution, and prevention measures.
+
+### Project Rules Commands
+
+### `/project:session-rules init`
+Initializes project rules system with templates based on project type.
+
+### `/project:session-rules check`
+Validates current session against project rules and standards.
+
+**Compliance Areas:**
+- Naming conventions
+- Testing requirements
+- Security guidelines
+- Documentation standards
+- Git workflow
+
+### `/project:session-rules enforce [category]`
+Applies specific rule category enforcement:
+- `naming` - File and variable naming
+- `testing` - Test coverage requirements
+- `security` - Security best practices
+- `documentation` - Documentation standards
+
+### Delivery Documentation Commands
+
+### `/project:session-delivery create [type]`
+Generates comprehensive delivery documentation:
+- `feature` - Feature delivery with acceptance criteria
+- `sprint` - Sprint completion and retrospective
+- `release` - Version release notes and changelog
+
+### `/project:session-delivery status`
+Checks delivery readiness with quality gates.
+
+### `/project:session-delivery checklist`
+Generates pre-delivery, deployment, and post-delivery checklists.
+
+### `/project:session-delivery publish`
+Finalizes and publishes delivery documentation.
 
 ### `/project:session-help`
-Displays help information about the session system.
+Displays comprehensive help for all session commands.
 
-## 🎯 Best Practices for Claude Code
+## 🏆 Integrated Best Practices
 
-### Command Usage
-- These commands work only within Claude Code interactive sessions
-- Commands are project-specific and available to all team members
-- Arguments are passed directly after the command name
+### TDD & Debugging (from CLAUDE.md)
+1. **Browser DevTools First**: Network tab → Failed requests → Headers → CORS patterns
+2. **CURL Verification**: Test API independently with origin headers
+3. **Backend Logs**: Verify server responses separate from browser
+4. **Automated Testing**: Use testing tools for objective verification
+5. **Environment Parity**: Test all deployment domains in integration tests
 
-### Session Management  
-- Sessions help Claude maintain context across conversations
-- Review past sessions before starting related work
-- Session files serve as documentation for your development process
+### Sprint Planning (from astroHalal/workerHalal)
+1. **Sprint Categorization**: Use numeric prefixes (1.x feature, 2.x infra, etc.)
+2. **Descriptive Naming**: `[type]-[component]-[description]` format
+3. **Checkpoint Documentation**: Regular progress updates with status
+4. **Delivery Focus**: Clear acceptance criteria and success metrics
+5. **Knowledge Preservation**: Document decisions and lessons learned
+
+### Session Management Best Practices
+
+### Starting Sessions
+- Use sprint type prefix in session names for categorization
+- Complete pre-development checklist for environment parity
+- Define clear acceptance criteria and success metrics
+- Set up TDD environment and test strategy
+- Document architectural approach and decisions
+
+### During Development
+- Update at checkpoint intervals (2-4 hours)
+- Use appropriate checkpoint types (milestone, debug, daily)
+- Document architecture decisions and rationale
+- Track code quality metrics continuously
+- Follow debugging protocol for issues
+- Maintain CORS validation across environments
+
+### Ending Sessions
+- Complete comprehensive delivery documentation
+- Verify all acceptance criteria are met
+- Document lessons learned and best practices
+- Create follow-up tasks for technical debt
+- Update project documentation as needed
+
+### Knowledge Transfer
+- Review relevant past sessions and sprint docs
+- Reference session files in commit messages
+- Use delivery docs for stakeholder communication
+- Maintain retrospective insights for team learning
+- Update project rules based on lessons learned
+
+## 🤖 Enhanced Benefits for AI-Assisted Development
+
+### Context & Continuity
+1. **Rich Context Preservation**: Detailed session history with sprint alignment
+2. **Decision Documentation**: Architectural choices with rationale and alternatives
+3. **Issue Pattern Recognition**: Debugging history with root causes and solutions
+4. **Code Evolution Tracking**: Comprehensive git history with meaningful checkpoints
+5. **Dependency Intelligence**: Full awareness of stack, versions, and changes
+
+### Quality Assurance
+1. **Automated Compliance**: Rules enforcement and quality gates
+2. **TDD Integration**: Test-first development with coverage tracking
+3. **CORS Validation**: Cross-origin configuration verification
+4. **Performance Monitoring**: Metrics tracking and optimization
+5. **Security Scanning**: Vulnerability detection and mitigation
+
+### Productivity Acceleration
+1. **Template-Based Sessions**: Quick start with appropriate template
+2. **Sprint Management**: Organized work with clear objectives
+3. **Debugging Protocols**: Systematic issue resolution
+4. **Delivery Automation**: Generated documentation and reports
+5. **Knowledge Sharing**: Team learning and best practices
+
+## 💡 Enhanced Use Cases
+
+### 1. Feature Development with Sprint Planning
+```bash
+# Create feature sprint
+/project:session-sprint create feature-user-authentication
+
+# Start development session
+/project:session-start feature-oauth-integration
+
+# Regular checkpoint updates
+/project:session-update milestone "OAuth provider integrated"
+/project:session-update daily "Completed Google OAuth, starting GitHub"
+
+# Complete with delivery docs
+/project:session-delivery create feature
+/project:session-end
+```
+
+### 2. Emergency Production Issue
+```bash
+# Start emergency session
+/project:session-start emergency-api-timeout
+
+# Follow debugging protocol
+/project:session-debug start "API timeouts on production"
+/project:session-debug symptoms
+/project:session-debug browser
+/project:session-debug api
+/project:session-debug complete "Database connection pool exhausted"
+
+# Document resolution
+/project:session-end
+```
+
+### 3. Infrastructure Automation
+```bash
+# Start infrastructure sprint
+/project:session-sprint create infrastructure-ci-cd
+
+# Begin session with rules check
+/project:session-rules init
+/project:session-start infrastructure-github-actions
+
+# Progress tracking
+/project:session-update integration "CI pipeline running"
+/project:session-update deployment "Auto-deploy to staging working"
+
+# Delivery and completion
+/project:session-delivery status
+/project:session-delivery publish
+/project:session-end
+```
+
+### 4. Research & Proof of Concept
+```bash
+# Research sprint for framework evaluation
+/project:session-sprint create research-framework-migration
+
+# Start research session
+/project:session-start research-nextjs-app-router
+
+# Document findings
+/project:session-update milestone "POC complete - 40% performance gain"
+/project:session-update review "Architecture review approved migration"
+
+# Generate research delivery doc
+/project:session-delivery create research
+/project:session-end
+```
+
+### 5. Maintenance & Dependency Updates
+```bash
+# Maintenance session
+/project:session-start maintenance-dependency-updates
+
+# Check compliance
+/project:session-rules check
+
+# Update progress
+/project:session-update daily "Updated 15 dependencies, 3 breaking changes"
+/project:session-update review "All tests passing, security vulnerabilities fixed"
+
+# Complete maintenance
+/project:session-end
+```
+
+## 📚 References & Resources
+
+### Claude Code Documentation
+- [Claude Code Slash Commands Documentation](https://docs.anthropic.com/en/docs/claude-code/slash-commands)
+- [Claude Code Memory Management](https://docs.anthropic.com/en/docs/claude-code/memory-management)
+- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview)
+
+### Best Practices Sources
+- **CLAUDE.md**: TDD protocols, debugging checklists, CORS validation
+- **astroHalal**: Sprint planning, descriptive naming, delivery documentation
+- **workerHalal**: Advanced testing, deployment automation, retrospectives
+
+### Additional Resources
+- [Session Templates](/templates) - Quick-start templates for different session types
+- [Best Practices Guide](/best-practices.md) - Consolidated best practices reference
+- [Project Rules Examples](/.rules) - Sample project rules configurations
 
 ## 🔧 Customization
 
@@ -181,145 +486,48 @@ Displays help information about the session system.
 If you want to use these with Claude Code's standard directory structure:
 1. Copy the `commands` folder to `.claude/commands/` in your project
 2. Update paths in command files from `sessions/` to `.claude/sessions/`
+3. Move templates to `.claude/templates/`
 
 ### Creating Your Own Commands
 - Modify command files to change behavior
 - Create additional session-related commands
-- Organize commands in subdirectories for namespacing (e.g., `/project:session:feature:start`)
+- Organize commands in subdirectories for namespacing
 - Create personal versions in `~/.claude/commands/` with `/user:` prefix
 
-## 📚 References
-
-- [Claude Code Slash Commands Documentation](https://docs.anthropic.com/en/docs/claude-code/slash-commands)
-- [Claude Code Memory Management](https://docs.anthropic.com/en/docs/claude-code/memory-management)
-- [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview)
-
-## 🎯 Best Practices
-
-### Starting Sessions
-- Use descriptive names that indicate the main focus
-- Start sessions for significant features or bug fixes
-- Define clear goals at the beginning
-
-### During Development
-- Update regularly when completing significant tasks
-- Document unexpected issues and their solutions
-- Track breaking changes or important discoveries
-- Note any dependencies added or configuration changes
-
-### Ending Sessions
-- Always end sessions with `/project:session-end`
-- Review the generated summary for completeness
-- Add any missing context before closing
-
-### Knowledge Transfer
-- Review relevant past sessions before starting similar work
-- Reference session files in commit messages for context
-- Use session summaries for standup updates or reports
-
-## 💡 Use Cases
-
-### 1. Feature Development
-```
-/project:session-start user-authentication
-# Implement auth logic
-/project:session-update Added middleware and login page
-# Fix issues
-/project:session-update Resolved Next.js 15 async cookie issue
-/project:session-end
-```
-
-### 2. Bug Fixing
-```
-/project:session-start fix-email-bounce-handling
-# Investigate issue
-/project:session-update Found AWS SNS webhook misconfiguration
-# Implement fix
-/project:session-update Updated webhook handler and added logging
-/project:session-end
-```
-
-### 3. Refactoring
-```
-/project:session-start database-service-refactor
-# Plan refactoring
-/project:session-update Created new DB service class architecture
-# Execute changes
-/project:session-update Migrated all queries to new service
-/project:session-end
-```
-
-## 🤖 Benefits for AI Agents
-
-1. **Context Preservation**: Sessions provide rich context about past work
-2. **Decision History**: Understand why certain approaches were taken
-3. **Issue Awareness**: Know about problems already encountered and solved
-4. **Code Evolution**: Track how the codebase has changed over time
-5. **Dependency Tracking**: Awareness of what packages and tools are used
-
-## 🔍 Tips and Tricks
-
-1. **Searchable Sessions**: Use consistent terminology in updates for easy searching
-2. **Link Issues**: Reference ticket numbers or GitHub issues in updates
-3. **Code Snippets**: Include important code changes in session updates
-4. **Screenshots**: Reference screenshot paths for UI changes
-5. **Testing Notes**: Document test scenarios and results
-
-## ⚙️ Configuration
-
-### Customizing Commands
-Edit the command files in `commands/` to:
-- Change session file format
-- Add custom sections
-- Modify summary generation
-- Adjust git tracking details
-
-### Session Storage
-- Default: `sessions/`
-- Can be changed by updating command files
-- Consider version control needs
+### Project-Specific Rules
+Edit `.rules/` files to customize:
+- Sprint categorization systems
+- Naming conventions
+- Quality gates and standards
+- Testing requirements
+- Documentation formats
 
 ## 🚨 Troubleshooting
 
 **No active session found**
-- Start a new session with `/project:session-start`
+- Start a new session with `/project:session-start [type]-[name]`
 - Check `sessions/.current-session` exists
 
-**Session updates not working**
-- Ensure a session is active
-- Check file permissions in `sessions/`
+**Rules compliance issues**
+- Run `/project:session-rules check` to identify violations
+- Use `/project:session-rules enforce [category]` to fix automatically
 
-**Missing git information**
-- Verify you're in a git repository
-- Check git is properly initialized
+**Debugging protocol not working**
+- Ensure `/project:session-debug start` was called first
+- Follow the 4-phase debugging protocol systematically
 
-## 📚 Examples
-
-### Complete Feature Implementation Session
-```markdown
-# Development Session - 2025-01-16 13:47 - campaign-editor
-
-## Goals
-- [x] Create dedicated campaign editor
-- [x] Add markdown support
-- [x] Implement auto-save
-
-## Progress
-[Multiple detailed updates documenting the implementation]
-
-## Session Summary
-Successfully implemented a full-featured campaign editor with markdown support,
-live preview, and auto-save functionality. Resolved Next.js 15 compatibility
-issues and added proper error handling.
-```
+**Missing templates**
+- Verify `templates/` directory exists with all session type templates
+- Use appropriate template based on session type
 
 ## 🤝 Contributing
 
 To improve this system:
 1. Enhance command instructions for better AI comprehension
-2. Add new commands for specific workflows
-3. Improve session file formatting
-4. Create utilities for session analysis
+2. Add new templates for specialized workflows
+3. Improve rules enforcement and compliance checking
+4. Create utilities for session analysis and reporting
+5. Add integrations with project management tools
 
 ## 📄 License
 
@@ -327,4 +535,22 @@ This session management system is open source and available for use in any proje
 
 ---
 
-*Remember: Good documentation today saves hours of debugging tomorrow!*
+*"Structured sessions + systematic debugging + automated compliance = sustainable velocity"*
+
+## 🚀 Get Started
+
+1. **Initialize your project**:
+   ```bash
+   /project:session-rules init
+   ```
+
+2. **Start your first enhanced session**:
+   ```bash
+   /project:session-start feature-your-first-feature
+   ```
+
+3. **Experience the difference** of structured, well-documented development!
+
+---
+
+**Created by combining the best of**: claude-sessions + astroHalal + workerHalal + CLAUDE.md best practices

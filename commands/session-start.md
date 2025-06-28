@@ -1,13 +1,106 @@
-Start a new development session by creating a session file in `.claude/sessions/` with the format `YYYY-MM-DD-HHMM-$ARGUMENTS.md` (or just `YYYY-MM-DD-HHMM.md` if no name provided).
+Start a new development session with integrated sprint planning and best practices enforcement.
 
-The session file should begin with:
-1. Session name and timestamp as the title
-2. Session overview section with start time
-3. Goals section (ask user for goals if not clear)
-4. Empty progress section ready for updates
+## Session Creation Process:
 
-After creating the file, create or update `.claude/sessions/.current-session` to track the active session filename.
+1. **Generate Session Filename**: Create session file in `sessions/` using format:
+   - With name: `YYYY-MM-DD-HHMM-[sprint-type]-[descriptive-name].md`
+   - Without name: `YYYY-MM-DD-HHMM.md`
+   
+   **Sprint Type Categories** (based on astroHalal/workerHalal patterns):
+   - `feature` - New functionality development
+   - `bug` - Bug fixes and patches
+   - `refactor` - Code refactoring and optimization
+   - `infrastructure` - DevOps, deployment, configuration
+   - `research` - Spike, analysis, proof of concept
+   - `maintenance` - Updates, dependencies, cleanup
+   - `emergency` - Critical fixes requiring immediate attention
 
-Confirm the session has started and remind the user they can:
-- Update it with `/project:session-update`
-- End it with `/project:session-end`
+2. **Session File Structure**: Initialize with comprehensive sections:
+
+```markdown
+# Development Session - [Date Time] - [Sprint Type] - [Name]
+
+## Session Overview
+- **Start Time**: [Timestamp]
+- **Sprint Type**: [Category]
+- **Estimated Duration**: [Ask user]
+- **Priority Level**: [High/Medium/Low]
+- **Related Sprint**: [If applicable]
+
+## Goals & Acceptance Criteria
+[Prompt user for specific, measurable goals]
+- [ ] [Goal 1 with clear acceptance criteria]
+- [ ] [Goal 2 with clear acceptance criteria]
+- [ ] [Goal 3 with clear acceptance criteria]
+
+## Pre-Development Checklist
+- [ ] **Environment Setup**: Verify development environment parity
+- [ ] **CORS Configuration**: Confirm all deployment domains configured
+- [ ] **Test Suite**: Ensure tests are passing before starting
+- [ ] **Branch Strategy**: Confirm working on correct branch
+- [ ] **Dependencies**: Check for any pending updates or conflicts
+
+## Architecture & Approach
+[Document planned approach and architecture decisions]
+
+## TDD Setup (if applicable)
+- [ ] **Test Environment**: Configure test database/environment
+- [ ] **Testing Strategy**: Define test scenarios and coverage
+- [ ] **CORS Testing**: Plan cross-origin request testing
+- [ ] **Mock Services**: Identify external services to mock
+
+## Progress Log
+[Updates will be added here during development]
+
+## Debugging Protocol Checkpoints
+- [ ] **Symptoms Analysis**: Document any issues encountered (5min)
+- [ ] **Browser DevTools**: Check Network tab for failed requests (10min)
+- [ ] **API Testing**: Direct CURL testing with proper headers (10min)
+- [ ] **Configuration Review**: CORS settings, environment differences (15min)
+
+## Session Rules & Guidelines
+[Project-specific rules will be referenced here]
+
+## Dependencies & External Services
+[Document any external dependencies or services involved]
+
+## Risk Assessment
+[Identify potential risks and mitigation strategies]
+```
+
+3. **Project Rules Integration**: Check for project-specific rules:
+   - Look for `.rules` directory and reference applicable guidelines
+   - Check for `CLAUDE.md` and integrate relevant best practices
+   - Apply descriptive naming conventions from project standards
+
+4. **Environment Verification**: Perform initial checks:
+   - Verify git repository status and branch
+   - Check for existing session conflicts
+   - Validate development environment setup
+   - Confirm CORS configurations if web development
+
+5. **Sprint Planning Integration**: If this is part of a larger sprint:
+   - Reference existing sprint documentation
+   - Link to relevant backlog items
+   - Identify dependencies on other tasks
+   - Set realistic time estimates
+
+After creating the session file, update `sessions/.current-session` to track the active session filename.
+
+## Confirmation Message:
+Confirm the session has started with:
+- Session name and estimated duration
+- Sprint type and priority level
+- Key goals and acceptance criteria
+- Remind user of available commands:
+  - `/project:session-update` - Log progress and checkpoint
+  - `/project:session-debug` - Systematic debugging protocol
+  - `/project:session-sprint` - Sprint management features
+  - `/project:session-end` - Complete session with delivery docs
+
+## Best Practices Reminders:
+- Use descriptive commit messages referencing the session
+- Update session regularly at key checkpoints
+- Document any unexpected discoveries or issues
+- Maintain environment parity throughout development
+- Test CORS configurations on all target domains
