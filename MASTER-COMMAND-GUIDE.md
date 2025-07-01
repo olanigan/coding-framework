@@ -1,7 +1,7 @@
-# Master Command Usage Guide 🎯
-*The Complete Reference for Agentic Coding Session Management*
+# Master Command Usage Guide 🎯 - SDLC v1.0
+*The Complete Reference for SDLC v1.0 Framework Session Management*
 
-> **Use this guide to determine which commands to use in any development scenario**
+> **Use this guide to determine which commands to use in any development scenario with performance-first development and systematic failure prevention**
 
 ## 🚀 Quick Start Decision Tree
 
@@ -24,6 +24,9 @@ What's your goal today?
 ├── Research/investigate → [Research Sessions](#research-sessions)
 ├── Infrastructure work → [Infrastructure Sessions](#infrastructure-sessions)
 ├── Maintenance tasks → [Maintenance Sessions](#maintenance-sessions)
+├── Sprint planning → [Sprint Planning Sessions](#sprint-planning-sessions)
+├── Performance optimization → [Performance Sessions](#performance-sessions)
+├── Failure analysis → [Failure Analysis Sessions](#failure-analysis-sessions)
 └── Emergency fix → [Emergency Response](#emergency-response)
 ```
 
@@ -176,16 +179,17 @@ What's your goal today?
 # 1. Start emergency session immediately
 /project:session-start emergency-[brief-description]
 
-# 2. Begin systematic debugging
+# 2. Begin systematic debugging (5-phase SDLC v1.0)
 /project:session-debug start "[detailed issue description]"
 
-# 3. Follow debugging protocol
-/project:session-debug symptoms
-/project:session-debug browser
-/project:session-debug api
-/project:session-debug config
+# 3. Follow 5-phase debugging protocol
+/project:session-debug symptoms    # Phase 1: Symptoms Analysis (5 min)
+/project:session-debug browser     # Phase 2: Browser DevTools (10 min)
+/project:session-debug api         # Phase 3: API Testing (10 min)
+/project:session-debug config      # Phase 4: Configuration Review (15 min)
+                                   # Phase 5: Solution & Documentation
 
-# 4. Document solution
+# 4. Document solution and prevention
 /project:session-debug complete "[solution description]"
 
 # 5. End emergency session
@@ -201,7 +205,7 @@ What's your goal today?
 
 ### Development Sessions
 
-**Feature Development**:
+**Feature Development (SDLC v1.0)**:
 ```bash
 # Check sprint alignment first
 /project:session-sprint status
@@ -209,9 +213,15 @@ What's your goal today?
 # Start feature session
 /project:session-start feature-[component-name]
 
-# Regular updates
+# Document performance baseline
+/project:session-update milestone "Performance baseline documented"
+
+# Regular updates with performance checks
 /project:session-update milestone "[achievement]"
-/project:session-update daily "[progress summary]"
+/project:session-update daily "[progress summary] - Performance: API [X]ms, Page [Y]ms"
+
+# Validate performance standards before completion
+/project:session-update review "Performance standards verified: ✅ API < 500ms, ✅ Page < 2s"
 
 # Before ending, check delivery readiness
 /project:session-delivery status
@@ -220,15 +230,24 @@ What's your goal today?
 /project:session-end
 ```
 
+**Performance Standards Compliance (Mandatory)**:
+- Document performance baseline before development
+- Monitor performance continuously during development
+- Validate all standards met before completion
+- No performance regressions allowed
+
 **Bug Fixing Workflow**:
 ```bash
 # Start bug session
 /project:session-start bug-[issue-description]
 
-# If debugging needed
+# If debugging needed (5-phase SDLC v1.0 protocol)
 /project:session-debug start "[issue details]"
-# Follow debugging protocol...
-/project:session-debug complete "[solution]"
+/project:session-debug symptoms    # Phase 1: 5 min
+/project:session-debug browser     # Phase 2: 10 min
+/project:session-debug api         # Phase 3: 10 min  
+/project:session-debug config      # Phase 4: 15 min
+/project:session-debug complete "[solution]"  # Phase 5: Solution & Prevention
 
 # Update with fix details
 /project:session-update debug "Root cause: [cause], Fix: [solution]"
@@ -283,6 +302,96 @@ What's your goal today?
 # End session
 /project:session-end
 ```
+
+### Sprint Planning Sessions (SDLC v1.0)
+
+**When to Use**: Sprint kickoff, planning sessions, sprint retrospectives
+
+```bash
+# Start sprint planning session
+/project:session-sprint-planning [sprint-name]
+
+# Example: /project:session-sprint-planning 1.3-auth-oauth-integration
+
+# During planning
+/project:session-update milestone "Sprint backlog prioritized"
+/project:session-update review "Team capacity and velocity confirmed"
+
+# Complete sprint planning
+/project:session-end
+```
+
+**What this does**:
+- Creates comprehensive sprint planning documentation
+- Sets performance goals and quality gates
+- Plans risk mitigation and failure prevention
+- Defines sprint success criteria and metrics
+
+### Performance Sessions (SDLC v1.0)
+
+**When to Use**: Performance optimization, meeting performance standards, performance emergencies
+
+```bash
+# Start performance optimization session
+/project:session-performance [optimization-target]
+
+# Example: /project:session-performance api-response-optimization
+
+# Document baseline metrics
+/project:session-update milestone "Performance baseline documented"
+
+# Track optimization progress
+/project:session-update debug "Found N+1 query causing 800ms response time"
+
+# Validate improvements
+/project:session-update milestone "API response time reduced to 300ms"
+
+# End session
+/project:session-end
+```
+
+**Performance Standards (Mandatory)**:
+- API Response Time: < 500ms end-to-end
+- Page Load Time: < 2 seconds initial load
+- Database Query Time: < 100ms execution
+- Component Render: < 100ms for interactive elements
+
+### Failure Analysis Sessions (SDLC v1.0)
+
+**When to Use**: Three-strike rule triggered (task failed 3 times)
+
+**MANDATORY Trigger Conditions**:
+- Same task fails 3 times despite different approaches
+- Sprint objectives not met for 3 consecutive sprints
+- Same type of bug/issue occurs 3 times
+- Performance standards missed 3 times for same component
+
+```bash
+# STOP all related work immediately when three-strike rule triggered
+
+# Start failure analysis session
+/project:session-failure-analysis [failed-task-description]
+
+# Example: /project:session-failure-analysis oauth-integration-attempts
+
+# Document all failed attempts
+/project:session-update milestone "All 3 attempts documented and analyzed"
+
+# Root cause analysis
+/project:session-update review "Technical, process, and knowledge factors identified"
+
+# Prevention strategy
+/project:session-update milestone "Prevention measures and alternative approach defined"
+
+# End session
+/project:session-end
+```
+
+**What this does**:
+- Systematic root cause analysis (technical, process, knowledge factors)
+- Prevention strategy development (immediate and long-term)
+- Alternative solution approach with success criteria
+- Knowledge transfer and team learning
 
 ---
 
@@ -339,11 +448,12 @@ What's your goal today?
 # 2. Begin systematic debugging
 /project:session-debug start "[detailed error description]"
 
-# 3. Follow the 4-phase protocol
-/project:session-debug symptoms    # 5 min
-/project:session-debug browser     # 10 min  
-/project:session-debug api         # 10 min
-/project:session-debug config      # 15 min
+# 3. Follow the 5-phase SDLC v1.0 protocol
+/project:session-debug symptoms    # Phase 1: Symptoms Analysis (5 min)
+/project:session-debug browser     # Phase 2: Browser DevTools (10 min)  
+/project:session-debug api         # Phase 3: API Testing (10 min)
+/project:session-debug config      # Phase 4: Configuration Review (15 min)
+                                   # Phase 5: Solution & Documentation
 
 # 4. Document solution
 /project:session-debug complete "[solution implemented]"
@@ -392,7 +502,7 @@ What's your goal today?
 > **Copy this section to use as a master prompt for any AI coding agent**
 
 ```
-You are an expert development agent using the Mega Agentic Coding Session Management System. 
+You are an expert development agent using the SDLC v1.0 Framework with performance-first development and systematic failure prevention.
 
 BEFORE starting any coding work, ALWAYS:
 
@@ -406,12 +516,15 @@ BEFORE starting any coding work, ALWAYS:
    - Active sprint? → `/project:session-sprint status`
    - Project rules? → `/project:session-rules check`
 
-3. SELECT APPROPRIATE SESSION TYPE:
+3. SELECT APPROPRIATE SESSION TYPE (SDLC v1.0):
    - New feature → `feature-[component-name]`
    - Bug fix → `bug-[issue-description]`
    - Research → `research-[topic]`
    - Infrastructure → `infrastructure-[component]`
    - Maintenance → `maintenance-[area]`
+   - Sprint planning → `/project:session-sprint-planning [sprint-name]`
+   - Performance optimization → `/project:session-performance [target]`
+   - Failure analysis → `/project:session-failure-analysis [task]` (three-strike rule)
    - Emergency → `emergency-[issue]`
 
 4. FOLLOW SESSION WORKFLOW:
@@ -420,48 +533,174 @@ BEFORE starting any coding work, ALWAYS:
    - Debug if needed: `/project:session-debug` protocol (symptoms→browser→api→config)
    - End: `/project:session-end` with comprehensive documentation
 
-5. USE DEBUGGING PROTOCOL FOR ANY ISSUES:
+5. USE 5-PHASE DEBUGGING PROTOCOL FOR ANY ISSUES (SDLC v1.0):
    - Start: `/project:session-debug start "[issue description]"`
-   - Phase 1: `/project:session-debug symptoms` (5 min)
-   - Phase 2: `/project:session-debug browser` (10 min)
-   - Phase 3: `/project:session-debug api` (10 min)
-   - Phase 4: `/project:session-debug config` (15 min)
-   - Complete: `/project:session-debug complete "[solution]"`
+   - Phase 1: `/project:session-debug symptoms` (5 min - user impact, error frequency)
+   - Phase 2: `/project:session-debug browser` (10 min - network tab, console errors)
+   - Phase 3: `/project:session-debug api` (10 min - CURL testing, backend logs)
+   - Phase 4: `/project:session-debug config` (15 min - CORS, environment differences)
+   - Phase 5: `/project:session-debug complete "[solution]"` (solution & prevention)
 
-6. MAINTAIN QUALITY:
+6. MAINTAIN QUALITY (SDLC v1.0 STANDARDS):
    - Check compliance: `/project:session-rules check` regularly
    - Document decisions and rationale in updates
    - Use appropriate checkpoint types (milestone, daily, debug, blocker, etc.)
    - Ensure CORS validation and environment parity
    - Follow TDD practices when applicable
+   - PERFORMANCE FIRST: Monitor API < 500ms, Page < 2s, DB < 100ms continuously
+   - THREE-STRIKE AWARENESS: Track failed attempts, trigger failure analysis after 3 failures
+   - QUALITY GATES: Validate all standards before completion
 
 7. DELIVERY FOCUS:
    - Check readiness: `/project:session-delivery status`
    - Generate docs: `/project:session-delivery create [type]`
    - Publish when ready: `/project:session-delivery publish`
 
-REMEMBER: Every significant development activity should be wrapped in a session. Sessions provide context, ensure quality, and preserve knowledge for future work.
+REMEMBER: Every significant development activity should be wrapped in a session following SDLC v1.0 framework. Sessions provide context, ensure performance-first development, implement systematic failure prevention, and preserve knowledge for future work.
+
+SDLC v1.0 FRAMEWORK REFERENCES:
+- Master Framework: SDLC.md
+- Performance Standards: performance-standards.md (MANDATORY compliance)
+- Failure Analysis: failure-analysis-framework.md (three-strike rule)
+- Best Practices: best-practices.md (enhanced with SDLC patterns)
+```
+
+---
+
+## 🎯 "What's Next?" Status Assessment (SDLC v1.0)
+
+### Quick Status Check Commands
+**Run these commands when you're unsure what to do next:**
+
+```bash
+# 1. Check if there's an active session
+/project:session-current
+
+# 2. Check current sprint status
+/project:session-sprint status
+
+# 3. Check framework compliance
+/project:session-rules check
+
+# 4. List recent sessions for context
+/project:session-list
+```
+
+### Decision Matrix: What Should I Do Next?
+
+#### Scenario 1: No Active Session
+```
+Current State: No active session found
+Next Action: Start appropriate session type
+Commands: /project:session-start [type]-[description]
+```
+
+#### Scenario 2: Active Session Exists
+```
+Current State: Session active for [X] hours
+Next Actions:
+- Continue work: Resume development on current session
+- Update progress: /project:session-update [checkpoint-type] "[status]"
+- End session: /project:session-end (if work complete)
+```
+
+#### Scenario 3: No Active Sprint
+```
+Current State: No active sprint
+Next Actions:
+- Plan new sprint: /project:session-sprint-planning [sprint-name]
+- Create sprint: /project:session-sprint create [type]
+```
+
+#### Scenario 4: Sprint Active, Work Available
+```
+Current State: Sprint [X] active with pending tasks
+Next Action: Start task-aligned session
+Commands: /project:session-start [sprint-aligned-task]
+```
+
+#### Scenario 5: Performance Issues Detected
+```
+Current State: Performance standards not met
+Next Action: Performance optimization session
+Commands: /project:session-performance [optimization-target]
+```
+
+#### Scenario 6: Three-Strike Rule Triggered
+```
+Current State: Task failed 3 times
+Next Action: MANDATORY failure analysis
+Commands: 
+1. STOP current work
+2. /project:session-failure-analysis [failed-task]
+```
+
+### Framework Health Indicators
+
+#### ✅ Healthy Project State
+- Active sprint with clear objectives
+- Performance standards consistently met
+- No three-strike situations
+- Regular session documentation
+- Quality gates passing
+
+#### ⚠️ Warning Signs
+- Sessions not updated for > 4 hours
+- Performance metrics declining
+- Multiple task failures (approaching three-strike)
+- Sprint objectives unclear or behind schedule
+
+#### 🚨 Critical Issues
+- Three-strike rule triggered (STOP and analyze)
+- Performance standards consistently missed
+- No active sprint or session management
+- Framework compliance failing
+
+### Automated Health Check Sequence
+```bash
+# Run this sequence when unsure about project health:
+
+# 1. Framework compliance
+/project:session-rules check
+
+# 2. Performance status (if performance session available)
+# Check if any performance standards are being missed
+
+# 3. Sprint alignment
+/project:session-sprint status
+
+# 4. Session status
+/project:session-current
+
+# 5. Recent activity review
+/project:session-list
+
+# Based on results, choose appropriate next action from decision matrix above
 ```
 
 ---
 
 ## 🚨 Common Mistakes to Avoid
 
-### ❌ Don't Do This
-- Starting work without checking project state
-- Skipping session initialization
-- Not using appropriate session types
-- Forgetting to update sessions regularly
-- Not following debugging protocol during issues
-- Ending sessions without proper documentation
+### ❌ Don't Do This (SDLC v1.0)
+- Starting work without checking project state and performance baseline
+- Skipping session initialization or framework compliance check
+- Not using appropriate session types (missing sprint-planning, performance, failure-analysis)
+- Forgetting to update sessions regularly or track performance
+- Not following 5-phase debugging protocol during issues
+- Ignoring three-strike rule when tasks fail repeatedly
+- Ending sessions without proper documentation and performance validation
+- Missing performance standards (API > 500ms, Page > 2s, DB > 100ms)
 
-### ✅ Do This Instead
-- Always assess project state first
-- Initialize sessions system if missing
-- Use descriptive, sprint-aligned session names
-- Update sessions at logical checkpoints
-- Follow systematic debugging when issues arise
-- End sessions with comprehensive delivery docs
+### ✅ Do This Instead (SDLC v1.0)
+- Always assess project state and framework compliance first
+- Initialize sessions system with SDLC v1.0 framework if missing
+- Use descriptive, sprint-aligned session names with performance goals
+- Update sessions at logical checkpoints with performance metrics
+- Follow systematic 5-phase debugging when issues arise
+- Trigger mandatory failure analysis after three strikes
+- End sessions with comprehensive delivery docs and performance validation
+- Maintain performance-first development throughout all work
 
 ---
 
@@ -487,15 +726,19 @@ As needed: /project:session-start bug-[issue] or emergency-[critical-issue]
 
 ---
 
-## 📊 Success Metrics
+## 📊 Success Metrics (SDLC v1.0)
 
-You're using the system effectively when:
-- ✅ Every development session is documented
-- ✅ Sprint goals are clear and tracked
-- ✅ Issues are debugged systematically
-- ✅ Quality gates are consistently met
-- ✅ Knowledge transfer is comprehensive
-- ✅ Future developers can understand your work
+You're using the framework effectively when:
+- ✅ Every development session is documented with performance tracking
+- ✅ Sprint goals are clear, tracked, and aligned with business value
+- ✅ Issues are debugged systematically using 5-phase protocol
+- ✅ Performance standards consistently met (API < 500ms, Page < 2s, DB < 100ms)
+- ✅ Quality gates are consistently passed before completion
+- ✅ Three-strike rule prevents repeated failures through systematic analysis
+- ✅ Knowledge transfer is comprehensive with failure prevention insights
+- ✅ Future developers can understand your work and avoid past failures
+- ✅ Framework compliance maintained across all development activities
+- ✅ Performance-first development culture established and maintained
 
 ---
 
