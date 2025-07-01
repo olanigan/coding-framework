@@ -1,6 +1,6 @@
-# Mega Agentic Coding Best Practices Guide
+# Mega Agentic Coding Best Practices Guide - SDLC v1.0
 
-A consolidated reference of best practices combining insights from CLAUDE.md, astroHalal, workerHalal projects, and session management expertise.
+A consolidated reference of best practices combining insights from CLAUDE.md, astroHalal, workerHalal projects, and the comprehensive SDLC v1.0 framework for performance-first development and systematic failure prevention.
 
 ## 🎯 Core Principles
 
@@ -16,16 +16,23 @@ A consolidated reference of best practices combining insights from CLAUDE.md, as
 - **Progressive Testing**: Unit → Integration → E2E → Performance
 - **Objective Verification**: Use automated tools over manual testing
 
-### 3. Systematic Problem Solving
-- **Emergency Response Protocol**: Follow structured debugging phases
+### 3. Systematic Problem Solving (SDLC v1.0)
+- **Emergency Response Protocol**: Follow structured debugging phases (CLAUDE.md)
 - **Documentation First**: Record symptoms before investigating
 - **Root Cause Focus**: Don't just fix symptoms, eliminate causes
 - **Prevention Mindset**: Always include prevention measures
+- **Three-Strike Rule**: Mandatory failure analysis after 3 failed attempts (failure-analysis-framework.md)
+
+### 4. Performance-First Development (performance-standards.md)
+- **Performance Budgets**: Define performance targets before development
+- **Measurement-Driven**: All performance claims backed by measurements
+- **User-Centric Metrics**: Focus on metrics impacting user experience
+- **Mandatory Standards**: API < 500ms, Page load < 2s, DB queries < 100ms
 
 ## 🏃 Sprint Planning Best Practices
 
-### Sprint Categorization System
-Based on astroHalal/workerHalal patterns:
+### Sprint Categorization System (SDLC v1.0)
+Based on astroHalal/workerHalal patterns and enhanced with SDLC v1.0 framework:
 
 #### 1.x - Feature Sprints
 - **Purpose**: New functionality development
@@ -77,6 +84,44 @@ Based on astroHalal/workerHalal patterns:
 4. **Dependency Mapping**: Understand upstream/downstream dependencies
 5. **Resource Planning**: Allocate appropriate time and skills
 6. **Success Metrics**: Define how to measure success
+
+## 🚀 SDLC v1.0 Framework Integration
+
+### Core Framework Documents
+- **SDLC.md**: Master framework with sprint structure and performance standards
+- **performance-standards.md**: Mandatory performance requirements and optimization strategies
+- **failure-analysis-framework.md**: Three-strike rule implementation and prevention strategies
+
+### Session Management (Enhanced)
+- **sprint-planning-session.md**: Comprehensive sprint kickoff with risk assessment
+- **performance-optimization-session.md**: Performance baseline and optimization tracking
+- **failure-analysis-session.md**: Three-strike failure analysis and prevention
+
+### Quality Gates Integration
+All development work must pass these quality gates:
+- [ ] **Performance Standards Met**: All performance-standards.md requirements achieved
+- [ ] **Test Coverage**: Comprehensive testing (unit, integration, E2E, performance)
+- [ ] **Code Quality**: Code review completed with no critical issues
+- [ ] **Documentation Updated**: All changes documented and knowledge transferred
+- [ ] **No Regressions**: No degradation in existing functionality
+- [ ] **Acceptance Criteria**: All user story acceptance criteria verified
+
+### Three-Strike Failure Prevention
+When tasks fail 3 times, mandatory failure analysis includes:
+1. **Root Cause Analysis**: Technical, process, and knowledge factors
+2. **Prevention Strategy**: Immediate and long-term prevention measures
+3. **Alternative Solution**: New approach with success criteria
+4. **Knowledge Transfer**: Insights documented for team learning
+
+**Reference**: failure-analysis-framework.md for complete process
+
+### Performance-First Development Workflow
+1. **Pre-Development**: Define performance budgets and baselines
+2. **During Development**: Continuous performance monitoring
+3. **Pre-Deployment**: Performance testing and validation
+4. **Post-Deployment**: Real user monitoring and alerts
+
+**Reference**: performance-standards.md for detailed requirements
 
 ## 🐛 Systematic Debugging Protocol
 
@@ -290,14 +335,16 @@ Following astroHalal/workerHalal patterns:
 4. **Team Presentations**: Regular knowledge sharing sessions
 5. **External Documentation**: Blog posts and conference talks
 
-## 🔍 Monitoring & Observability
+## 🔍 Monitoring & Observability (SDLC v1.0 Enhanced)
 
 ### Key Metrics to Track
-1. **Application Performance**: Response time, throughput, error rate
+1. **Application Performance**: Response time, throughput, error rate (performance-standards.md)
 2. **Infrastructure Health**: CPU, memory, disk, network usage
 3. **Business Metrics**: User engagement, conversion rates, revenue
 4. **Security Events**: Failed logins, suspicious activities
 5. **Development Velocity**: Deployment frequency, lead time, MTTR
+6. **Quality Metrics**: Code coverage, technical debt, performance regression
+7. **Learning Metrics**: Failure analysis effectiveness, prevention success rate
 
 ### Alerting Best Practices
 1. **Actionable Alerts**: Only alert on issues requiring immediate action
@@ -370,30 +417,51 @@ Post-Mortem: [When post-mortem will be conducted]
 
 ## 🎯 Quick Reference
 
-### Daily Checklist
+### Daily Checklist (SDLC v1.0)
 - [ ] Check current sprint status and priorities
-- [ ] Review yesterday's session summary
-- [ ] Start session with appropriate sprint type
-- [ ] Update session at checkpoint intervals
-- [ ] End session with comprehensive summary
-- [ ] Plan tomorrow's work based on session insights
+- [ ] Review yesterday's session summary and performance metrics
+- [ ] Start session with appropriate sprint type (reference SDLC.md)
+- [ ] Apply performance-first development principles
+- [ ] Update session at checkpoint intervals with quality gates
+- [ ] Track any task failures for three-strike analysis
+- [ ] End session with comprehensive summary and knowledge transfer
+- [ ] Plan tomorrow's work based on session insights and performance data
 
-### Weekly Checklist
-- [ ] Review sprint progress and velocity
-- [ ] Conduct code quality audit
-- [ ] Update project documentation
-- [ ] Review and address technical debt
-- [ ] Plan next sprint based on current learnings
+### Weekly Checklist (SDLC v1.0)
+- [ ] Review sprint progress and velocity against performance standards
+- [ ] Conduct code quality audit with performance regression analysis
+- [ ] Update project documentation and knowledge base
+- [ ] Review and address technical debt with failure analysis insights
+- [ ] Plan next sprint based on current learnings and performance data
+- [ ] Assess any three-strike situations and schedule failure analysis
 
-### Monthly Checklist
-- [ ] Conduct team retrospective
-- [ ] Review and update best practices
-- [ ] Analyze development velocity trends
-- [ ] Update project roadmap and priorities
-- [ ] Celebrate team achievements and learnings
+### Monthly Checklist (SDLC v1.0)
+- [ ] Conduct team retrospective with SDLC framework effectiveness review
+- [ ] Review and update best practices based on failure analysis findings
+- [ ] Analyze development velocity trends and performance metrics
+- [ ] Update project roadmap with performance and quality priorities
+- [ ] Celebrate team achievements and learning from systematic improvement
+- [ ] Review performance-standards.md and failure-analysis-framework.md effectiveness
 
 ---
 
 *"Excellence is not an act, but a habit. We are what we repeatedly do."* - Aristotle
 
-This best practices guide should be a living document, updated regularly based on team learnings and industry evolution.
+## 📚 SDLC v1.0 Framework References
+
+### Core Documents
+- **[SDLC.md](./SDLC.md)**: Master framework document with sprint structure and development standards
+- **[performance-standards.md](./performance-standards.md)**: Mandatory performance requirements and optimization strategies
+- **[failure-analysis-framework.md](./failure-analysis-framework.md)**: Three-strike rule implementation and systematic learning
+
+### Session Templates
+- **[templates/sprint-planning-session.md](./templates/sprint-planning-session.md)**: Comprehensive sprint kickoff template
+- **[templates/performance-optimization-session.md](./templates/performance-optimization-session.md)**: Performance work template
+- **[templates/failure-analysis-session.md](./templates/failure-analysis-session.md)**: Three-strike failure analysis template
+
+### Commands Integration
+- **[commands/session-sprint-planning.md](./commands/session-sprint-planning.md)**: Sprint planning session command
+- **[commands/session-performance.md](./commands/session-performance.md)**: Performance optimization session command
+- **[commands/session-failure-analysis.md](./commands/session-failure-analysis.md)**: Failure analysis session command
+
+This best practices guide integrates with the complete SDLC v1.0 framework and should be updated regularly based on team learnings, failure analysis insights, and performance optimization discoveries.

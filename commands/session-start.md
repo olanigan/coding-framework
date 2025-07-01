@@ -1,4 +1,4 @@
-Start a new development session with integrated sprint planning and best practices enforcement.
+Start a new development session following SDLC v1.0 framework with integrated sprint planning and performance-first development.
 
 ## Session Creation Process:
 
@@ -6,14 +6,16 @@ Start a new development session with integrated sprint planning and best practic
    - With name: `YYYY-MM-DD-HHMM-[sprint-type]-[descriptive-name].md`
    - Without name: `YYYY-MM-DD-HHMM.md`
    
-   **Sprint Type Categories** (based on astroHalal/workerHalal patterns):
-   - `feature` - New functionality development
-   - `bug` - Bug fixes and patches
-   - `refactor` - Code refactoring and optimization
-   - `infrastructure` - DevOps, deployment, configuration
-   - `research` - Spike, analysis, proof of concept
-   - `maintenance` - Updates, dependencies, cleanup
-   - `emergency` - Critical fixes requiring immediate attention
+   **Sprint Type Categories** (SDLC v1.0 Framework):
+   - `feature` - New functionality development (Sprint 1.x)
+   - `infrastructure` - DevOps, deployment, configuration (Sprint 2.x)
+   - `bug` - Bug fixes and patches (Sprint 3.x)
+   - `research` - Spike, analysis, proof of concept (Sprint 4.x)
+   - `maintenance` - Updates, dependencies, cleanup (Sprint 5.x)
+   - `emergency` - Critical fixes requiring immediate attention (Sprint 9.x)
+   - `sprint-planning` - Sprint kickoff and planning sessions
+   - `performance` - Performance optimization work
+   - `failure-analysis` - Three-strike rule failure analysis
 
 2. **Session File Structure**: Initialize with comprehensive sections:
 
@@ -33,12 +35,14 @@ Start a new development session with integrated sprint planning and best practic
 - [ ] [Goal 2 with clear acceptance criteria]
 - [ ] [Goal 3 with clear acceptance criteria]
 
-## Pre-Development Checklist
+## Pre-Development Checklist (SDLC v1.0)
 - [ ] **Environment Setup**: Verify development environment parity
 - [ ] **CORS Configuration**: Confirm all deployment domains configured
 - [ ] **Test Suite**: Ensure tests are passing before starting
 - [ ] **Branch Strategy**: Confirm working on correct branch
 - [ ] **Dependencies**: Check for any pending updates or conflicts
+- [ ] **Performance Baseline**: Document current performance metrics
+- [ ] **Quality Gates**: Review applicable quality checkpoints
 
 ## Architecture & Approach
 [Document planned approach and architecture decisions]
@@ -52,11 +56,12 @@ Start a new development session with integrated sprint planning and best practic
 ## Progress Log
 [Updates will be added here during development]
 
-## Debugging Protocol Checkpoints
+## Debugging Protocol Checkpoints (CLAUDE.md Integration)
 - [ ] **Symptoms Analysis**: Document any issues encountered (5min)
 - [ ] **Browser DevTools**: Check Network tab for failed requests (10min)
 - [ ] **API Testing**: Direct CURL testing with proper headers (10min)
 - [ ] **Configuration Review**: CORS settings, environment differences (15min)
+- [ ] **Three-Strike Awareness**: Track failed attempts for failure analysis
 
 ## Session Rules & Guidelines
 [Project-specific rules will be referenced here]
@@ -96,11 +101,18 @@ Confirm the session has started with:
   - `/project:session-update` - Log progress and checkpoint
   - `/project:session-debug` - Systematic debugging protocol
   - `/project:session-sprint` - Sprint management features
+  - `/project:session-sprint-planning` - Start sprint planning session
+  - `/project:session-performance` - Start performance optimization session
+  - `/project:session-failure-analysis` - Start failure analysis session
   - `/project:session-end` - Complete session with delivery docs
 
-## Best Practices Reminders:
+## SDLC v1.0 Best Practices Integration:
 - Use descriptive commit messages referencing the session
 - Update session regularly at key checkpoints
 - Document any unexpected discoveries or issues
 - Maintain environment parity throughout development
 - Test CORS configurations on all target domains
+- Follow performance-first development (performance-standards.md)
+- Apply three-strike rule for failure prevention
+- Include quality gates and knowledge transfer sections
+- Reference failure-analysis-framework.md for systematic learning
